@@ -1,0 +1,47 @@
+/* Grid commands */
+.grid-container {
+  display: grid;
+  /* syntax variations: */
+  /* grid-template-columns: 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px; */
+
+  /* grid-template-columns: 100px minmax(100px, 3fr) 1fr; */
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  /* grid-gap: 1em; or : 1em 2em; for rows and colums */
+
+  grid-template-areas:
+    'header header'
+    'main aside'
+    'footer footer';
+
+  /* responsive: */
+  /* grid-template-columns: repeat(auto-fit, minmax(100pc, 1fr)); */
+}
+
+.grid-item-1 {
+  grid-row: 1 / 3;
+  grid-column: 1 / 5;
+  grid-area: header;
+}
+
+.grid-item-2 {
+  grid-row: span 2;
+  grid-column: span 3;
+  grid-area: main;
+}
+
+.grid-item-3 {
+  /* grid-area: row-start col-start row-end col-end; */
+  /* grid-area: 3 / 1 / 7 / -4; */
+  grid-area: aside;
+}
+
+/* layer something else on top instead of using absolute positioning */
+.grid-item-4 {
+  /* grid-area: 2 / 2 / 6 /4; */
+  /* z-index: 1; */
+  grid-area: footer;
+}

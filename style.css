@@ -1,0 +1,486 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+:root {
+  /* primary colors */
+  --blue: hsl(246, 80%, 60%);
+  --orange: hsl(15, 100%, 70%);
+  --light-red: hsl(348, 100%, 68%);
+  --soft-blue: hsl(195, 74%, 62%);
+  --lime-green: hsl(145, 58%, 55%);
+  --violet: hsl(264, 64%, 52%);
+  --soft-orange: hsl(43, 84%, 65%);
+
+  /* neutral colors */
+
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+
+  /* fonts */
+  --ff-rubik: 'Rubik', sans-serif;
+  --font-white: #faf9f6;
+
+  font-size: 18px;
+  font-family: var(--ff-rubik);
+}
+
+body {
+  background-color: var(--very-dark-blue);
+  padding-top: 4.5rem;
+}
+
+.content-container {
+  width: 87%;
+  margin: auto;
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+section {
+  border-radius: 1rem;
+
+  width: 326px;
+}
+
+#user {
+  background: var(--dark-blue);
+  /* grid-area: user; */
+}
+
+.user-background {
+  background: var(--blue);
+  border-radius: 1rem;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 3.6rem);
+  column-gap: 1rem;
+  row-gap: 0.15rem;
+  grid-template-areas:
+    'pic para para'
+    'pic name name';
+}
+
+.user-background img {
+  border: 2px solid white;
+  width: 4rem;
+  border-radius: 2rem;
+  grid-area: pic;
+  justify-self: end;
+  align-self: center;
+}
+
+.user-background p {
+  grid-area: para;
+  align-self: end;
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: var(--pale-blue);
+}
+
+.user-background h1 {
+  grid-area: name;
+  align-self: start;
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: var(--font-color);
+}
+
+.time-period {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  color: var(--desaturated-blue);
+}
+
+.time-period p {
+  text-align: center;
+}
+
+.time-period p:hover {
+  cursor: pointer;
+  color: var(--font-white) !important;
+}
+
+.hours {
+  /* colors */
+  background-color: var(--dark-blue);
+  color: var(--font-white);
+  /* border features */
+  border-radius: 0.9rem;
+  /* size */
+  width: 100%;
+  height: 120px;
+  /* child element style */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'heading ellipsis'
+    'current previous';
+}
+
+.hours:hover {
+  cursor: pointer;
+  background-color: var(--desaturated-blue);
+}
+
+.hours h2 {
+  grid-area: heading;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+  padding-bottom: 0.6rem;
+  align-self: end;
+}
+
+.ellipsis {
+  background: url(images/icon-ellipsis.svg) no-repeat;
+  grid-area: ellipsis;
+  padding-right: 2.4rem;
+  padding-bottom: 1.1rem;
+  align-self: self-end;
+  justify-self: end;
+}
+
+.ellipsis:hover {
+  cursor: pointer;
+}
+
+.current {
+  grid-area: current;
+  padding-left: 1.25rem;
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 0.9;
+}
+
+.previous {
+  grid-area: previous;
+  align-self: self-start;
+  justify-self: end;
+  padding-right: 1.2rem;
+  /* padding-right: 1.3rem; */
+  padding-top: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--pale-blue);
+}
+
+#work {
+  background: var(--orange) url('./images/icon-work.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#work .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+#play {
+  background: var(--soft-blue) url('./images/icon-play.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#play .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+#study {
+  background: var(--light-red) url('./images/icon-study.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#study .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+#exercise {
+  background: var(--lime-green) url('./images/icon-exercise.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#exercise .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+#social {
+  background: var(--violet) url('./images/icon-social.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#social .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+#self-care {
+  background: var(--soft-orange) url('./images/icon-self-care.svg') no-repeat 95% -12%;
+  height: 160px;
+  position: relative;
+}
+
+#self-care .hours {
+  position: absolute;
+  bottom: 0;
+}
+
+/* mediaquery @ 590px, then change to 2 column */
+
+@media (min-width: 590px) {
+  .content-container {
+    max-width: 519px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 30px;
+    grid-template-areas:
+      'user work'
+      'user exercise'
+      'play study'
+      'social self-care';
+  }
+
+  section {
+    max-width: 254px;
+  }
+
+  #user {
+    grid-area: user;
+  }
+
+  .user-background {
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 0.15rem;
+    grid-template-areas: 'pic' 'pic' 'para' 'name' 'name' 'name';
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .user-background img {
+    justify-self: start;
+  }
+
+  .user-background h1 {
+    font-size: 1.8rem;
+  }
+
+  .time-period {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    color: var(--desaturated-blue);
+  }
+
+  .time-period p {
+    height: 2rem;
+    font-size: 0.85rem;
+    grid-column-start: 1;
+    padding-left: 1.5rem;
+  }
+
+  #daily {
+    display: grid;
+    align-content: end;
+    justify-content: start;
+  }
+  #weekly {
+    display: grid;
+    align-content: center;
+    justify-content: start;
+  }
+  #monthly {
+    display: grid;
+    align-content: start;
+    justify-content: start;
+  }
+
+  #work {
+    grid-area: work;
+  }
+
+  #play {
+    grid-area: play;
+  }
+
+  #study {
+    grid-area: study;
+  }
+
+  #exercise {
+    grid-area: exercise;
+  }
+
+  #social {
+    grid-area: social;
+  }
+
+  #self-care {
+    grid-area: self-care;
+  }
+}
+
+@media (min-width: 1000px) {
+  .content-container {
+    margin: 8rem auto;
+    max-width: 822px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    grid-template-areas:
+      'user work play'
+      'user exercise study'
+      'social self-care .';
+  }
+
+  .time-period p {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-container {
+    margin: 9.5rem auto;
+    max-width: 1107px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    grid-template-areas:
+      'user work play study'
+      'user exercise social self-care';
+  }
+
+  #username {
+    font-size: 2.25rem;
+  }
+
+  .time-period p {
+    height: 3rem;
+    font-size: 1rem;
+    padding-left: 2rem;
+  }
+
+  .hours {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      'heading ellipsis'
+      'current current'
+      'previous previous';
+  }
+
+  .hours h2 {
+    align-self: center;
+    padding-top: 18px;
+  }
+
+  .current {
+    align-self: self-end;
+    font-size: 3rem;
+  }
+
+  .ellipsis {
+    align-self: center;
+    background-position-y: 60%;
+    margin-right: 10px;
+  }
+
+  .previous {
+    justify-self: self-start;
+    align-self: self-start;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    padding-left: 30px;
+  }
+
+  #work {
+    height: 244px;
+  }
+
+  #work .hours {
+    height: 199px;
+  }
+
+  #play {
+    height: 244px;
+  }
+
+  #play .hours {
+    height: 199px;
+  }
+
+  #study {
+    height: 244px;
+  }
+
+  #study .hours {
+    height: 199px;
+  }
+
+  #exercise {
+    height: 244px;
+    background-position-y: 0;
+  }
+
+  #exercise .hours {
+    height: 199px;
+  }
+
+  #social {
+    height: 244px;
+  }
+
+  #social .hours {
+    height: 199px;
+  }
+
+  #self-care {
+    height: 244px;
+  }
+
+  #self-care .hours {
+    height: 199px;
+  }
+}
